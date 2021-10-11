@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function MovieList(props) {
   console.log('MOVIE LIST: ', props);
@@ -16,20 +16,23 @@ export default function MovieList(props) {
 }
 
 function MovieDetails(props) {
-  const { title, director, metascore } = props.movie;
+  const { id, title, director, metascore } = props.movie;
 
-  // COME BACK TO ADD LINK / ON CLICK
+  // ADD HISTORY
+  const history = useHistory();
+
+
   return (
-    <Link to={`/movies/${props.movie.id}`}>
-      <div className="movie-card">
-        <h2>{title}</h2>
-        <div className="movie-director">
-          Director: <em>{director}</em>
-        </div>
-        <div className="movie-metascore">
-          Metascore: <strong>{metascore}</strong>
-        </div>
+
+    <div className="movie-card" onClick={() => history.push(`/movies/${id}`)}>
+      <h2>{title}</h2>
+      <div className="movie-director">
+        Director: <em>{director}</em>
       </div>
-    </Link>
+      <div className="movie-metascore">
+        Metascore: <strong>{metascore}</strong>
+      </div>
+    </div>
+
   );
 }
