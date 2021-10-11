@@ -4,9 +4,6 @@ import { useParams, useRouteMatch } from 'react-router-dom';
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
-
-  // let id = 1;
-  // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
   const { id } = useParams();
   const { url, path } = useRouteMatch();
   
