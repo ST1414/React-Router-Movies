@@ -1,10 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MovieList(props) {
   console.log('MOVIE LIST: ', props);
-  
-  // if (!item) return <h2>Oh no not found!!</h2>
-
 
   return (
     <div className="movie-list">
@@ -20,15 +18,18 @@ export default function MovieList(props) {
 function MovieDetails(props) {
   const { title, director, metascore } = props.movie;
 
+  // COME BACK TO ADD LINK / ON CLICK
   return (
-    <div className="movie-card">
-      <h2>{title}</h2>
-      <div className="movie-director">
-        Director: <em>{director}</em>
+    <Link to={`/movies/${props.movie.id}`}>
+      <div className="movie-card">
+        <h2>{title}</h2>
+        <div className="movie-director">
+          Director: <em>{director}</em>
+        </div>
+        <div className="movie-metascore">
+          Metascore: <strong>{metascore}</strong>
+        </div>
       </div>
-      <div className="movie-metascore">
-        Metascore: <strong>{metascore}</strong>
-      </div>
-    </div>
+    </Link>
   );
 }

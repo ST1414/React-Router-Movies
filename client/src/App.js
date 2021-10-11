@@ -37,7 +37,7 @@ export default function App () {
       {console.log('RETURN: ', movieList)}
       <SavedList list={[ /* This is stretch */]} />
       
-      <Route path='/'>
+      <Route exact path='/'>
           <MovieList movies={movieList}/>
       </Route>
       
@@ -47,3 +47,5 @@ export default function App () {
     </div>
   );
 }
+
+// Pass the attribute 'movies' since MovieList.js looks for props.movies
